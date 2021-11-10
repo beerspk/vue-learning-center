@@ -1,9 +1,9 @@
-import Main from "@/views/m-library/Main";
+import Home from "@/views/m-library/Home";
 const m_library_route = [
   {
     path: "*",
     name: "Home",
-    component: Main,
+    component: Home,
   },
 ];
 

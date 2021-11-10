@@ -9,29 +9,37 @@
 </template>
 
 <script>
-import Header from "@/components/core/Header";
-import Content from "@/components/core/Content";
-import Footer from "@/components/core/Footer";
+import Header from '@/components/core/Header'
+import Content from '@/components/core/Content'
+import Footer from '@/components/core/Footer'
 export default {
   components: {
     Header,
     Content,
     Footer,
   },
-  name: "App",
+  name: 'App',
   data: () => ({
     //
   }),
-};
+}
 </script>
 <style>
-.bg-svg {
-  height: 100vh;
-  width: 100vw;
-  background-image: url("../src/assets/background/vueschool_hero.svg");
-  background-size: 140%;
+.bg-web {
+  height: 100%;
+  width: 100%;
+  background-image: url('../src/assets/background/Home_BG.jpg');
+  background-size: cover;
   background-position: 100% 100%;
   background-repeat: no-repeat;
+}
+.bg-mobile {
+  height: 100%;
+  width: 100%;
+  background-position: 100% 100%;
+  background-image: url('../src/assets/background/Home_BG.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .block {
   display: block;

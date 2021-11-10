@@ -6,7 +6,9 @@
         <v-icon class="ml-10" size="50px">mdi-menu</v-icon>
       </v-btn>
 
-      <h2 class="ml-15">Partner Collaboration center</h2>
+      <div class="ml-15 text-sm-h6 text-md-h5">
+        Partner Collaboration center
+      </div>
 
       <v-spacer></v-spacer>
 
@@ -42,11 +44,21 @@
         </v-col>
         <v-row justify="end" class="mt-2">
           <v-col cols="4">
-            <v-text-field class="input-small" solo label="Search" dense></v-text-field>
+            <v-text-field
+              class="input-small"
+              solo
+              label="Search"
+              dense
+            ></v-text-field>
           </v-col>
 
           <v-col cols="1" class="ml-5">
-            <v-text-field class="input-small" solo label="FAQs" dense></v-text-field>
+            <v-text-field
+              class="input-small"
+              solo
+              label="FAQs"
+              dense
+            ></v-text-field>
           </v-col>
         </v-row>
       </v-row>
@@ -55,7 +67,7 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style scoped>
