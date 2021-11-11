@@ -1,6 +1,7 @@
 <template>
   <div id="App">
     <v-app>
+      <Navigation v-if="$route.name !== 'Home'" />
       <Header />
       <Content />
       <Footer />
@@ -12,11 +13,13 @@
 import Header from '@/components/core/Header'
 import Content from '@/components/core/Content'
 import Footer from '@/components/core/Footer'
+import Navigation from './components/core/Navigation.vue'
 export default {
   components: {
     Header,
     Content,
     Footer,
+    Navigation,
   },
   name: 'App',
   data: () => ({
@@ -62,5 +65,10 @@ h3,
 h4,
 h5 {
   font-weight: 400;
+}
+.pointer:hover {
+  cursor: pointer;
+  background: lightgrey;
+  border-radius: 20px 20px 20px 20px;
 }
 </style>

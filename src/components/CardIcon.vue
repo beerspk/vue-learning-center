@@ -1,6 +1,6 @@
 <template>
   <div id="CardIcon" class="zoom">
-    <v-card flat @click="$router.push()">
+    <v-card flat @click="$router.push({ name: routeName }).catch(() => {})">
       <v-card-title class="d-flex justify-center">
         <v-icon size="50px" color="black">
           {{ icon }}
@@ -28,21 +28,23 @@ export default {
       type: String,
       default: 'black',
     },
+    routeName: {
+      type: String,
+    },
   },
 }
 </script>
 
 <style>
 .zoom {
-  padding: 50px;
+  padding: 10px;
   transition: transform 0.2s; /* Animation */
-  width: 220px;
   margin: 0 auto;
 }
 
 .zoom:hover {
   transform: scale(
-    1.5
+    1.3
   ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 </style>

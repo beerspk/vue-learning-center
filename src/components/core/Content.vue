@@ -1,10 +1,12 @@
 <template>
-  <v-content>
-    <router-view></router-view>
-  </v-content>
+  <v-main>
+    <v-fade-transition>
+      <router-view></router-view>
+    </v-fade-transition>
+  </v-main>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 <style></style>

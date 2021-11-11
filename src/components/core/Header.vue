@@ -2,13 +2,19 @@
   <div id="Header">
     <v-app-bar color="grey lighten-2" height="100px" app>
       <!-- <v-app-bar-nav-icon class="p-10"></v-app-bar-nav-icon> -->
-      <v-btn large icon>
-        <v-icon class="ml-10" size="50px">mdi-menu</v-icon>
+      <v-btn class="ml-2" style="height: 50px; width: 50px;" icon>
+        <v-icon size="50px">mdi-menu</v-icon>
       </v-btn>
 
-      <div class="ml-15 text-sm-h6 text-md-h5">
-        Partner Collaboration center
-      </div>
+      <v-hover>
+        <div
+          style="padding: 10px;"
+          class="ml-10 text-sm-h6 text-md-h5 pointer"
+          @click="$router.push({ name: 'Home' })"
+        >
+          Partner Collaboration center
+        </div>
+      </v-hover>
 
       <v-spacer></v-spacer>
 

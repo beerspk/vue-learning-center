@@ -3,6 +3,7 @@
     <v-container class="fill-height d-flex align-end">
       <v-row justify="center">
         <v-col cols="12">
+          <!-- <v-bottom-sheet value="true" persistent inset> -->
           <v-card>
             <div class="line"></div>
             <v-card-title class="d-flex justify-center">
@@ -16,10 +17,15 @@
                 Environment
               </div>
             </v-card-title>
+
             <v-card-text>
               <v-row justify="space-around">
                 <v-col cols="12" md="2">
-                  <card-icon icon="mdi-account-multiple-plus" text="Join" />
+                  <card-icon
+                    icon="mdi-account-multiple-plus"
+                    text="Join"
+                    routeName="Join"
+                  />
                 </v-col>
                 <v-col cols="12" md="2">
                   <card-icon
@@ -45,6 +51,7 @@
               </v-row>
             </v-card-text>
           </v-card>
+          <!-- </v-bottom-sheet> -->
         </v-col>
       </v-row>
     </v-container>
