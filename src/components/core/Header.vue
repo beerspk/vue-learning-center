@@ -1,88 +1,166 @@
 <template>
-  <div id="Header">
-    <v-app-bar color="grey lighten-2" height="100px" app>
-      <!-- <v-app-bar-nav-icon class="p-10"></v-app-bar-nav-icon> -->
-      <v-btn class="ml-2" style="height: 50px; width: 50px;" icon>
-        <v-icon size="50px">mdi-menu</v-icon>
-      </v-btn>
-
-      <v-hover>
-        <div
-          style="padding: 10px;"
-          class="ml-10 text-sm-h6 text-md-h5 pointer"
-          @click="$router.push({ name: 'Home' })"
-        >
-          Partner Collaboration center
-        </div>
-      </v-hover>
-
-      <v-spacer></v-spacer>
-
-      <v-row justify="end">
-        <v-col cols="12">
-          <v-row justify="end" class="mt-5">
-            <v-btn large icon>
-              <v-icon>mdi-home</v-icon>
+  <div id="header">
+    <v-row no-gutters align="center" style="height: 100%;">
+      <!-- Left Header -->
+      <v-col cols="10" md="5">
+        <v-row align="center" justify="start">
+          <v-col
+            class="d-flex justify-center pa-0"
+            cols="3"
+            sm="2"
+            lg="1"
+            v-if="$route.name !== 'Home' && $route.name !== 'Join'"
+          >
+            <v-btn @click="onSetShowMenu(!getShowMenu)" icon>
+              <v-icon size="35px" color="white">
+                mdi-menu
+              </v-icon>
             </v-btn>
-
-            <v-btn large icon>
-              <v-icon>mdi-phone</v-icon>
-            </v-btn>
-
-            <v-btn large icon>
-              <v-icon>mdi-logout</v-icon>
-            </v-btn>
-
-            <v-menu left bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn large icon v-bind="attrs" v-on="on">
-                  <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
-              </template>
-
-              <v-list>
-                <v-list-item v-for="n in 5" :key="n" @click="() => {}">
-                  <v-list-item-title>Option {{ n }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-row>
-        </v-col>
-        <v-row justify="end" class="mt-2">
-          <v-col cols="4">
-            <v-text-field
-              class="input-small"
-              solo
-              label="Search"
-              dense
-            ></v-text-field>
           </v-col>
-
-          <v-col cols="1" class="ml-5">
-            <v-text-field
-              class="input-small"
-              solo
-              label="FAQs"
-              dense
-            ></v-text-field>
+          <v-col class="d-flex pa-0" cols="9" lg="11">
+            <div
+              :class="`pointer ${isMobile ? '' : 'pl-4 pr-4 pt-1 pb-1'} ${
+                $route.name === 'Home' || $route.name === 'Join' ? 'pl-5' : ''
+              }`"
+              @click="$router.push({ name: 'Home' }).catch(() => {})"
+            >
+              <h4 v-if="isMobile">
+                Partner Collaboration Center
+              </h4>
+              <h2 v-else>Partner Collaboration Center</h2>
+            </div>
           </v-col>
         </v-row>
+      </v-col>
+
+      <v-col
+        v-if="!getLogin"
+        :class="`d-flex justify-end ${
+          isMobile || $vuetify.breakpoint.name ? '' : 'pr-10'
+        }`"
+        cols="2"
+        md="7"
+      >
+        <v-btn
+          color="white"
+          dark
+          text
+          @click="$router.push({ name: 'Join' }).catch((err) => {})"
+        >
+          <v-icon>mdi-login</v-icon>
+          <div v-if="!isMobile">
+            Login
+          </div>
+        </v-btn>
+      </v-col>
+
+      <v-row
+        justify="space-around"
+        align="center"
+        v-if="getLogin"
+        class="hidden-sm-and-down"
+      >
+        <v-col cols="1">
+          <div class="header_menu">
+            About
+          </div>
+        </v-col>
+        <v-col cols="1">
+          <div class="header_menu">
+            Podcast
+          </div>
+        </v-col>
+        <v-col cols="1">
+          <div class="header_menu">
+            Practice
+          </div>
+        </v-col>
+        <v-col cols="1">
+          <div class="header_menu">
+            Update
+          </div>
+        </v-col>
+        <v-col cols="1">
+          <div class="header_menu">
+            Admin
+          </div>
+        </v-col>
+        <v-col cols="1">
+          <div class="header_menu">
+            TH/EN
+          </div>
+        </v-col>
+        <v-col cols="1" class="mr-5">
+          <div class="header_menu d-flex">
+            <v-avatar size="50">
+              <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+            </v-avatar>
+            <v-icon color="white" medium>
+              mdi-chevron-down
+            </v-icon>
+          </div>
+        </v-col>
       </v-row>
-    </v-app-bar>
+    </v-row>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters({
+      getLogin: 'Login/getLogin',
+    }),
+  },
+  mounted() {
+    this.onResize()
+
+    window.addEventListener('resize', this.onResize, { passive: true })
+  },
+  data: () => ({ isMobile: false }),
+  beforeDestroy() {
+    if (typeof window === 'undefined') return
+
+    window.removeEventListener('resize', this.onResize, { passive: true })
+  },
+  computed: {
+    ...mapGetters({
+      getShowMenu: 'menu/getShowMenu',
+      getLogin: 'Login/getLogin',
+    }),
+  },
+  methods: {
+    onResize() {
+      this.isMobile = window.innerWidth < 600
+    },
+    ...mapActions({
+      onSetShowMenu: 'menu/onSetShowMenu',
+    }),
+  },
+}
 </script>
 
-<style scoped>
-.col {
-  padding: 0px;
-  margin: 0px;
+<style>
+#header {
+  background-color: rgba(0, 0, 0, 1);
+  /*Opacity start*/
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
+  filter: alpha(opacity=80);
+  -moz-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+  /*Opacity end*/
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  z-index: 1;
 }
-.row {
-  padding: 0px;
-  margin: 0px;
+.header_menu {
+  cursor: pointer;
 }
 </style>

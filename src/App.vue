@@ -1,9 +1,9 @@
 <template>
   <div id="App">
     <v-app>
-      <Navigation v-if="$route.name !== 'Home'" />
-      <Header />
+      <Navigation v-if="$route.name !== 'Home' && $route.name !== 'Join'" />
       <Content />
+      <Header />
       <Footer />
     </v-app>
   </div>
@@ -28,6 +28,28 @@ export default {
 }
 </script>
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: SAMSUNGSHARPSANS;
+}
+@font-face {
+  font-family: SAMSUNGSHARPSANS;
+  src: url('assets/font/SAMSUNGSHARPSANS-REGULAR_1.OTF') format('opentype');
+}
+@font-face {
+  font-family: SAMSUNGSHARPSANS;
+  src: url('assets/font/SAMSUNGSHARPSANS-BOLD_1.OTF') format('opentype');
+  font-weight: 700;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: SAMSUNGSHARPSANS;
+  font-weight: 700;
+}
 .bg-web {
   height: 100%;
   width: 100%;
@@ -39,7 +61,7 @@ export default {
 .bg-mobile {
   height: 100%;
   width: 100%;
-  background-position: 100% 100%;
+  background-position: 40%;
   background-image: url('../src/assets/background/Home_BG.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -59,16 +81,16 @@ export default {
 .z-0 {
   z-index: 0;
 }
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: 400;
-}
+
 .pointer:hover {
-  cursor: pointer;
-  background: lightgrey;
   border-radius: 20px 20px 20px 20px;
+  cursor: pointer;
+  background-color: rgba(30, 30, 30, 0.7) !important;
 }
+
+/* .pointer:hover {
+  cursor: pointer;
+  background: currentColor;
+  border-radius: 20px 20px 20px 20px;
+} */
 </style>

@@ -1,57 +1,31 @@
 <template>
   <div id="Home" :class="isMobile ? 'bg-mobile' : 'bg-web'">
-    <v-container class="fill-height d-flex align-end">
+    <v-container class="fill-height d-flex" fluid>
       <v-row justify="center">
-        <v-col cols="12">
-          <!-- <v-bottom-sheet value="true" persistent inset> -->
-          <v-card>
-            <div class="line"></div>
-            <v-card-title class="d-flex justify-center">
-              <div :style="`color:#F9A825`" class="text-center">
-                Join Us with your e-mail to Access the Educational Tools and
-                Resources
-                <br />
-                You Need to Stay Ahead and Compliant in the Responsible
-                Appliance Business, Labor, Ethics and
-                <br />
-                Environment
-              </div>
-            </v-card-title>
+        <v-col cols="12" md="11">
+          <h1 style="color: #644117;">
+            Sustainable Supply Chain
+          </h1>
+        </v-col>
 
-            <v-card-text>
-              <v-row justify="space-around">
-                <v-col cols="12" md="2">
-                  <card-icon
-                    icon="mdi-account-multiple-plus"
-                    text="Join"
-                    routeName="Join"
-                  />
-                </v-col>
-                <v-col cols="12" md="2">
-                  <card-icon
-                    icon="mdi-account-multiple-plus"
-                    text="Educate"
-                    textColor="#0D47A1"
-                  />
-                </v-col>
-                <v-col cols="12" md="2">
-                  <card-icon
-                    icon="mdi-account-multiple-plus"
-                    text="Assessment"
-                    textColor="#33691E"
-                  />
-                </v-col>
-                <v-col cols="12" md="2">
-                  <card-icon
-                    icon="mdi-account-multiple-plus"
-                    text="Tools"
-                    textColor="#C2185B"
-                  />
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-          <!-- </v-bottom-sheet> -->
+        <v-col cols="12" md="11">
+          <h3 style="color: #644117;">
+            Enhancing sustainability in corporate social responsibility
+          </h3>
+        </v-col>
+
+        <v-col cols="12" md="11"></v-col>
+
+        <v-col cols="12" md="11">
+          <p>
+            We support our suppliers to build a stronger competitive
+          </p>
+          <p>
+            edge in order to establish a sound corporate ecosystem and a
+          </p>
+          <p>
+            sustainable supply chain
+          </p>
         </v-col>
       </v-row>
     </v-container>
@@ -59,10 +33,10 @@
 </template>
 
 <script>
-import CardIcon from '@/components/CardIcon'
+// import CardIcon from '@/components/CardIcon'
 export default {
   components: {
-    CardIcon,
+    //   CardIcon,
   },
   name: 'Home',
   mounted() {
@@ -88,5 +62,9 @@ export default {
 <style scoped>
 .line {
   border: solid 8px lightblue;
+}
+p {
+  font-size: 14px;
+  font-weight: 600;
 }
 </style>

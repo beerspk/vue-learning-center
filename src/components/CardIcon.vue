@@ -7,7 +7,7 @@
         </v-icon>
       </v-card-title>
       <v-card-text class="d-flex justify-center">
-        <div :class="`text-center text-sm-h6`" :style="`color:${textColor};`">
+        <div :class="`text-center text-icon`" :style="`color:${textColor};`">
           {{ text }}
         </div>
       </v-card-text>
@@ -35,7 +35,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.text-icon {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 .zoom {
   padding: 10px;
   transition: transform 0.2s; /* Animation */
