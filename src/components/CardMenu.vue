@@ -12,10 +12,14 @@
           <div class="white--text">{{ name }}</div>
         </v-card>
       </v-row>
-      <v-row v-if="hover" align="start" justify="space-around" class="mt-10">
+      <v-row v-if="hover" align="start" justify="start" class="mt-7">
         <ul v-if="hover">
           <li v-for="(item, index) in items" :key="index">
-            <div style="font-size: 14px;">
+            <div
+              class="sub--menu"
+              style="font-size: 14px;"
+              @click="$router.push({ name: 'Main' })"
+            >
               {{ item.name }}
             </div>
           </li>
@@ -39,6 +43,15 @@ export default {
 </script>
 
 <style scoped>
+.sub--menu:hover {
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px 20px 20px 20px;
+  cursor: pointer;
+  background-color: rgba(30, 30, 30, 0.7) !important;
+}
+
 .zoom {
   transition: transform 0.2s; /* Animation */
   margin: 0 auto;

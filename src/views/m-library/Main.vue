@@ -6,13 +6,13 @@
         <CardMenu name="Self-Learning Center" :items="items" />
       </v-col>
       <v-col cols="12" md="3" class="d-flex justify-center">
-        <CardMenu name="Learning Profile" />
+        <CardMenu name="Learning Profile" :items="items2" />
       </v-col>
       <v-col cols="12" md="3" class="d-flex justify-center">
-        <CardMenu name="Guidelines and tools" />
+        <CardMenu name="Guidelines and tools" :items="items3" />
       </v-col>
       <v-col cols="12" md="3" class="d-flex justify-center">
-        <CardMenu name="Activity/Event Calendar" />
+        <CardMenu name="Activity/Event Calendar" :items="items4"/>
       </v-col>
     </v-row>
   </div>
