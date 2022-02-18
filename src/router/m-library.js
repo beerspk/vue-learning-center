@@ -1,7 +1,7 @@
 import Home from "@/views/m-library/Home";
 import Join from "@/views/m-library/Join";
 import Main from "@/views/m-library/Main";
-import CourseOverview from "@/views/m-library/CourseOverview";
+import Course from "@/views/m-library/Course";
 
 const m_library_route = [
   {
@@ -20,9 +20,9 @@ const m_library_route = [
     component: Main,
   },
   {
-    path: "/course/overview/:id",
-    name: "CourseOverview",
-    component: CourseOverview,
+    path: "/course/:course",
+    name: "Course",
+    component: Course,
   },
 ];
 

@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main id="Content">
     <v-fade-transition>
       <router-view></router-view>
     </v-fade-transition>
@@ -9,4 +9,9 @@
 <script>
 export default {}
 </script>
-<style></style>
+<style>
+.Content {
+  position: relative;
+  top: 10%;
+}
+</style>

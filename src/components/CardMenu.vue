@@ -18,7 +18,7 @@
             <div
               class="sub--menu"
               style="font-size: 14px;"
-              @click="$router.push({ name: 'Main' })"
+              @click="$router.push(item.link)"
             >
               {{ item.name }}
             </div>

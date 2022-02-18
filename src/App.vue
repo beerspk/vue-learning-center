@@ -2,8 +2,8 @@
   <div id="App">
     <v-app>
       <Navigation v-if="$route.name !== 'Home' && $route.name !== 'Join'" />
-      <Content />
       <Header />
+      <Content />
       <Footer />
     </v-app>
   </div>
@@ -50,6 +50,13 @@ h4 {
   font-family: SAMSUNGSHARPSANS;
   font-weight: 700;
 }
+
+h1 {
+  font-size: 2rem;
+}
+
+
+
 .bg-web {
   height: 100%;
   width: 100%;

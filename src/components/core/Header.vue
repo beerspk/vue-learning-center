@@ -11,7 +11,7 @@
             lg="1"
             v-if="$route.name !== 'Home' && $route.name !== 'Join'"
           >
-            <v-btn @click="onSetShowMenu(!getShowMenu)" icon>
+            <v-btn @click="onSetShowMenu(!getShowMenu)" icon class="pl-3">
               <v-icon size="35px" color="white">
                 mdi-menu
               </v-icon>
@@ -152,7 +152,7 @@ export default {
   opacity: 0.8;
   /*Opacity end*/
   color: white;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
